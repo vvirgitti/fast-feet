@@ -1,4 +1,4 @@
-Fast Feet
+# Fast Feet
 
 Implementation of the example in chapter 4 of Sandi Metz's Practical object oriented design in Ruby.
 
