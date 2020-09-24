@@ -1,6 +1,4 @@
 import { TripInterface, TripStore } from "./trip-store";
-import { ITrip } from "./trip";
-import tripList from "../data/trips.json";
 
 describe("Trip Store", () => {
   describe("store", () => {
