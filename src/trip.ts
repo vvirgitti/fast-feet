@@ -1,6 +1,7 @@
 import tripList from "../data/trips.json";
 
 interface ITrip {
+  maxCustomers: number;
   name: string;
   difficulty: number;
   type: string;
@@ -19,6 +20,7 @@ export class Trip {
         name: trip.name,
         difficulty: trip.difficulty,
         type: trip.type,
+        maxCustomers: trip.maxCustomers,
       };
     } catch (e) {
       throw e;

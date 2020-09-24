@@ -2,71 +2,85 @@
   {
     "name": "Bristol to Bath Path",
     "difficulty": 1,
-    "type": "road"
+    "type": "road",
+    "maxCustomers": 30
   },
   {
     "name": "Camel Trail",
     "difficulty": 1,
-    "type": "road"
+    "type": "road",
+    "maxCustomers": 45
   },
   {
     "name": "Richmond Park",
     "difficulty": 1,
-    "type": "road"
+    "type": "road",
+    "maxCustomers": 35
   },
   {
     "name": "Brockenhurst",
     "difficulty": 1,
-    "type": "road"
+    "type": "road",
+    "maxCustomers": 40
   },
   {
     "name": "Merthyr Tydfil to Brecon",
     "difficulty": 3,
-    "type": "road"
+    "type": "road",
+    "maxCustomers": 10
   },
   {
     "name": "Cromer Ridge",
     "difficulty": 2,
-    "type": "road"
+    "type": "road",
+    "maxCustomers": 20
   },
   {
     "name": "Lincoln to Bardney",
     "difficulty": 2,
-    "type": "road"
+    "type": "road",
+    "maxCustomers": 25
   },
   {
     "name": "Keswick Loop",
     "difficulty": 3,
-    "type": "road"
+    "type": "road",
+    "maxCustomers": 5
   },
   {
     "name": "Dark Peak",
     "difficulty": 3,
-    "type": "mountain"
+    "type": "mountain",
+    "maxCustomers": 10
   },
   {
     "name": "Nan Bield Pass",
     "difficulty": 3,
-    "type": "mountain"
+    "type": "mountain",
+    "maxCustomers": 15
   },
   {
     "name": "Cannock Chase",
     "difficulty": 1,
-    "type": "mountain"
+    "type": "mountain",
+    "maxCustomers": 35
   },
   {
     "name": "Dalby Forest",
     "difficulty": 1,
-    "type": "mountain"
+    "type": "mountain",
+    "maxCustomers": 25
   },
   {
     "name": "Ullswater",
     "difficulty": 2,
-    "type": "mountain"
+    "type": "mountain",
+    "maxCustomers": 20
   },
   {
     "name": "Afan Forest Park",
     "difficulty": 2,
-    "type": "mountain"
+    "type": "mountain",
+    "maxCustomers": 15
   }
 ]

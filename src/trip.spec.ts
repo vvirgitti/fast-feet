@@ -25,4 +25,9 @@ describe("Trip", () => {
     const trip = new Trip("Dalby Forest");
     expect(trip.details.type).toEqual("mountain");
   });
+
+  it("returns 25 max customers if the trip name is Dalby Forest", () => {
+    const trip = new Trip("Dalby Forest");
+    expect(trip.details.maxCustomers).toEqual(25);
+  });
 });
