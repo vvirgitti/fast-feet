@@ -1,6 +1,16 @@
 import { Trip } from "./trip";
 
 describe("Trip", () => {
+  it("returns Cromer Ridge in the details", () => {
+    const trip = new Trip("Cromer Ridge");
+    expect(trip.details.name).toEqual("Cromer Ridge");
+  });
+
+  it("throws an error if the trip name does not exist", () => {
+    const trip = new Trip("fake");
+    expect(() => trip.details).toThrowError("This trip does not exist");
+  });
+
   it("has a difficulty of 1 if the trip name is Camel trail", () => {
     const trip = new Trip("Camel Trail");
     expect(trip.details.difficulty).toEqual(1);
