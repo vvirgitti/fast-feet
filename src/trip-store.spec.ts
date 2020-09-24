@@ -16,61 +16,65 @@ describe("Trip Store", () => {
     expect(maxCapacity).toEqual(20);
   });
 
-  it("stores a Cromer Ridge trip", () => {
-    const { stubTrip } = testDependencies();
-    const tripStore = new TripStore(stubTrip);
+  describe("store", () => {
+    it("stores a Cromer Ridge trip", () => {
+      const { stubTrip } = testDependencies();
+      const tripStore = new TripStore(stubTrip);
 
-    const tripName = "Cromer Ridge";
+      const tripName = "Cromer Ridge";
 
-    stubTrip.getTripDetails.mockReturnValueOnce({
-      name: tripName,
-      difficulty: 1,
-      type: "mountain",
-      maxCustomers: 20,
+      stubTrip.getTripDetails.mockReturnValueOnce({
+        name: tripName,
+        difficulty: 1,
+        type: "mountain",
+        maxCustomers: 20,
+      });
+
+      tripStore.store(tripName);
+
+      expect(tripStore.tripsCollection.length).toEqual(1);
+      expect(tripStore.tripsCollection[0].name).toEqual(tripName);
     });
 
-    tripStore.store(tripName);
+    it("cannot store the same trip twice", () => {
+      const { stubTrip } = testDependencies();
+      const tripStore = new TripStore(stubTrip);
 
-    expect(tripStore.tripsCollection.length).toEqual(1);
-    expect(tripStore.tripsCollection[0].name).toEqual(tripName);
+      const tripName = "Cromer Ridge";
+
+      stubTrip.getTripDetails.mockReturnValueOnce({
+        name: tripName,
+        difficulty: 1,
+        type: "mountain",
+        maxCustomers: 20,
+      });
+
+      tripStore.store("Cromer Ridge");
+      tripStore.store("Cromer Ridge");
+
+      expect(tripStore.tripsCollection.length).toEqual(1);
+    });
   });
 
-  it("cannot store the same trip twice", () => {
-    const { stubTrip } = testDependencies();
-    const tripStore = new TripStore(stubTrip);
+  describe("delete", () => {
+    it("can delete a trip", () => {
+      const { stubTrip } = testDependencies();
+      const tripStore = new TripStore(stubTrip);
 
-    const tripName = "Cromer Ridge";
+      const tripName = "Cromer Ridge";
+      stubTrip.getTripDetails.mockReturnValue({
+        name: tripName,
+        difficulty: 1,
+        type: "mountain",
+        maxCustomers: 20,
+      });
 
-    stubTrip.getTripDetails.mockReturnValueOnce({
-      name: tripName,
-      difficulty: 1,
-      type: "mountain",
-      maxCustomers: 20,
+      tripStore.store("Cromer Ridge");
+      expect(tripStore.tripsCollection.length).toEqual(1);
+
+      tripStore.delete("Cromer Ridge");
+      expect(tripStore.tripsCollection.length).toEqual(0);
     });
-
-    tripStore.store("Cromer Ridge");
-    tripStore.store("Cromer Ridge");
-
-    expect(tripStore.tripsCollection.length).toEqual(1);
-  });
-
-  it("can delete a trip", () => {
-    const { stubTrip } = testDependencies();
-    const tripStore = new TripStore(stubTrip);
-
-    const tripName = "Cromer Ridge";
-    stubTrip.getTripDetails.mockReturnValue({
-      name: tripName,
-      difficulty: 1,
-      type: "mountain",
-      maxCustomers: 20,
-    });
-
-    tripStore.store("Cromer Ridge");
-    expect(tripStore.tripsCollection.length).toEqual(1);
-
-    tripStore.delete("Cromer Ridge");
-    expect(tripStore.tripsCollection.length).toEqual(0);
   });
 });
 
