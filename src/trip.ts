@@ -8,14 +8,11 @@ interface ITrip {
 }
 
 export class Trip {
-  name: string;
-  constructor(tripName: string) {
-    this.name = tripName;
-  }
+  constructor() {}
 
-  public get details(): ITrip {
+  public details(tripName: string): ITrip {
     try {
-      const trip = Trip.returnTrip(this.name);
+      const trip = Trip.returnTrip(tripName);
       return {
         name: trip.name,
         difficulty: trip.difficulty,
