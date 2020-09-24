@@ -10,4 +10,9 @@ describe("Trip", () => {
     const trip = new Trip("trip 2");
     expect(trip.difficulty).toEqual(2);
   });
+
+  it("is a mountain bike trip if the trip name is 1", () => {
+    const trip = new Trip("trip 1");
+    expect(trip.type).toEqual("mountain");
+  });
 });
