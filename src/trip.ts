@@ -1,6 +1,6 @@
 import tripList from "../data/trips.json";
 
-interface ITrip {
+export interface ITrip {
   maxCustomers: number;
   name: string;
   difficulty: number;
@@ -10,7 +10,7 @@ interface ITrip {
 export class Trip {
   constructor() {}
 
-  public details(tripName: string): ITrip {
+  public getTripDetails(tripName: string): ITrip {
     try {
       const trip = Trip.returnTrip(tripName);
       return {

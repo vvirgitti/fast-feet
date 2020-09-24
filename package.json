@@ -29,6 +29,18 @@
     "babel-jest": "^26.3.0",
     "jest": "^26.4.2",
     "prettier": "^2.1.2",
+    "ts-jest": "^26.4.0",
     "typescript": "^4.0.3"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "testMatch": [
+      "**/src/*.spec.(ts|tsx)"
+    ],
+    "testEnvironment": "node"
   }
 }
