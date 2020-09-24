@@ -11,7 +11,8 @@ export class TripStore {
   }
 
   public maxCapacity(tripName: string) {
-    return this.trip.getTripDetails(tripName).maxCustomers;
+    return this.tripsCollection.filter((t) => t.name === tripName)[0]
+      .maxCustomers;
   }
 
   public store(tripName: string) {

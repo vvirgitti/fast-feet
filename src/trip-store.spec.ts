@@ -1,21 +1,8 @@
 import { TripInterface, TripStore } from "./trip-store";
+import { ITrip } from "./trip";
+import tripList from "../data/trips.json";
 
 describe("Trip Store", () => {
-  it("returns 20 as the max number of customers for the Cromer Ridge trip", () => {
-    const { stubTrip } = testDependencies();
-    const tripStore = new TripStore(stubTrip);
-
-    stubTrip.getTripDetails.mockReturnValueOnce({
-      name: "Cromer Ridge",
-      difficulty: 1,
-      type: "mountain",
-      maxCustomers: 20,
-    });
-
-    const maxCapacity = tripStore.maxCapacity("Cromer Ridge");
-    expect(maxCapacity).toEqual(20);
-  });
-
   describe("store", () => {
     it("stores a Cromer Ridge trip", () => {
       const { stubTrip } = testDependencies();
@@ -75,6 +62,23 @@ describe("Trip Store", () => {
       tripStore.delete("Cromer Ridge");
       expect(tripStore.tripsCollection.length).toEqual(0);
     });
+  });
+
+  it("returns 20 as the max number of customers for the Cromer Ridge trip", () => {
+    const { stubTrip } = testDependencies();
+    const tripStore = new TripStore(stubTrip);
+
+    stubTrip.getTripDetails.mockReturnValueOnce({
+      name: "Cromer Ridge",
+      difficulty: 1,
+      type: "mountain",
+      maxCustomers: 20,
+    });
+
+    tripStore.store("Cromer Ridge");
+
+    const maxCapacity = tripStore.maxCapacity("Cromer Ridge");
+    expect(maxCapacity).toEqual(20);
   });
 });
 
